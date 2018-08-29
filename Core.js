@@ -1,8 +1,8 @@
 //function nhập và xử lý số đưa ra màn hình:
-let inputmemory = "";
-let input1;
-let input2;
-let output;
+let inputmemory = "";//bộ nhớ input (dùng xong xóa)
+let input1;//toán hạng 1
+let input2;//toán hạng 2
+let output;// kết quả
 
 function inputnumber(number) {
     document.getElementById("out").innerHTML = "";
@@ -13,27 +13,20 @@ function inputnumber(number) {
 
 
 //function lưu trữ, Xử lý toán tử và tính toán:
-let operatormemory = "nothing";//bộ nhớ toán tử ( dùng khi bấm toán tử khác thay vì bấm dấu '=' )
-let operatorinuse;// toán tử đang sử dụng (dùng khi bấm dấu bằng)
+let operatorcheck = 0;//check xem có đang sử dụng operator nào không
+let operatorinuse;// toán tử đang sử dụng
 
 function calculator(cal) {
     // dành cho người lười bấm dấu "=":
-    if (operatormemory === "nothing") {
-        operatormemory = cal;
+    if (operatorcheck === 0) {
+        operatorcheck = 1;
         operatorinuse = cal;
-        console.log(cal);
-        console.log(operatorinuse);
-        console.log(operatormemory);
-        input1 = parseInt(inputmemory);
-        inputmemory = "";
+        input1 = parseInt(inputmemory);//lấy giá trị cho toán hạng từ input
+        inputmemory = "";//dùng xong xóa
         document.getElementById("out").innerHTML = "";
     } else {
         input2 = parseInt(inputmemory);
-        inputmemory = "";
-        console.log(cal);
-        console.log(operatorinuse);
-        console.log(operatormemory);
-        switch (operatormemory) {
+        switch (operatorinuse) {
             case 1:
                 output = input1 + input2;
                 break;
@@ -49,8 +42,8 @@ function calculator(cal) {
             default:
                 output = inputmemory;
         }
+        inputmemory = "";
         input1 = output;//cập nhật toán hạng 1
-        operatormemory = cal;//cập nhật bộ nhớ dấu
         operatorinuse = cal;
         document.getElementById("out").innerHTML = output;
     }
@@ -59,7 +52,7 @@ function calculator(cal) {
 
 //dấu "="
 function equalto() {
-    input2 = parseInt(inputmemory);
+    input2 = parseInt(inputmemory);//lấy giá trị cho toán hạng từ input
     switch (operatorinuse) {
         case 1:
             output = input1 + input2;
@@ -76,9 +69,33 @@ function equalto() {
         default:
             output = inputmemory;
     }
-    operatormemory = "nothing";
+    operatorinuse = 0;
+    operatorcheck = 0;
     inputmemory = output;
     document.getElementById("out").innerHTML = output;
+
+}
+
+// các chức năng khác (màu bạc)
+function other(f) {
+    switch (f) {
+        case 1 :
+            document.getElementById("out").innerHTML = "0";
+            operatorinuse = 0;
+            operatorcheck = 0;
+            output = 0;
+            input1 = 0;
+            input2 = 0;
+            inputmemory = "";
+            break;
+        case 2 :
+            inputmemory ="";
+            document.getElementById("out").innerHTML = "";
+            break;
+
+
+
+    }
 
 }
 
