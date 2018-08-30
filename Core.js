@@ -4,9 +4,11 @@ let input1 = 0;//toán hạng 1, sau lần đầu thì input 1 được coi như
 let input2;//toán hạng 2
 let iffirstime = 0;// check xem đây có phải lần đầu input hay không
 let operatorinuse;// operator đang dùng
+let a = 0;// biến đếm cho vòng lặp đưa operator ra output operatoinuse
 
 
-// funcion nhập đầu vào (inputmemmory)
+
+// funcion nhập đầu vào (inputmemmory)(màu trắng
 function inputnumber(number) {
     document.getElementById("out").innerHTML = "";
     switch (number) {
@@ -20,23 +22,17 @@ function inputnumber(number) {
             number = number + "";
             inputmemory = inputmemory + number;
     }
-    if (iffirstime === 1){document.getElementById("operand2").innerHTML = inputmemory;}//hiện operand2
+    if (iffirstime === 1) {
+        document.getElementById("operand2").innerHTML = inputmemory;
+    }//hiện operand2
+    document.getElementById("operand1").innerHTML = input1;//hiện operand1
     document.getElementById("out").innerText = inputmemory;
 }
 
 
-//function lưu trữ và xử lý input:
-function calculator(operator) {//bảng hiện Operator
+//function lưu trữ và xử lý input( màu cam và đen)
+function calculator(operator) {
     document.getElementById("operand1").innerHTML = input1;//hiện operand1
-    for (a1 = 0; a1 < 5;) {
-        a1++;
-        a1 = a1 + "";
-        b1 = parseInt(document.getElementById(a1).id);
-        c1 = document.getElementById(a1).value;
-        if (b1 === operatorinuse) {
-            document.getElementById("operator").innerText = c1;
-        }
-    }
     //xử lý cho lần nhập đầu tiên:
     if (iffirstime === 0) {
         iffirstime = 1;
@@ -46,6 +42,15 @@ function calculator(operator) {//bảng hiện Operator
         inputmemory = "";
         if (operator === 6) {
             document.getElementById("out").innerHTML = input1;
+        }
+        for (a = 0; a < 6;) {//bảng hiện OperatorInUse
+            a++;
+            a = a + "";
+            let b = parseInt(document.getElementById(a).id);
+            let c = document.getElementById(a).value;
+            if (b === operatorinuse) {
+                document.getElementById("operatorinuse").innerText = c;
+            }
         }
     }
     //xử lý cho các lần nhập tiếp theo:
@@ -78,17 +83,20 @@ function calculator(operator) {//bảng hiện Operator
         operatorinuse = operator;
         inputmemory = "";
         document.getElementById("out").innerHTML = input1;
-        for (a2 = 0; a2 < 6;) {//bảng hiện OperatorInUse
-            a2++;
-            a2 = a2 + "";
-            b2 = parseInt(document.getElementById(a2).id);
-            c2 = document.getElementById(a2).value;
-            if (b2 === operatorinuse) {
-                document.getElementById("operatorinuse").innerText = c2;
+        for (a = 0; a < 6;) {//bảng hiện OperatorInUse
+            a++;
+            a = a + "";
+            let b = parseInt(document.getElementById(a).id);
+            let c = document.getElementById(a).value;
+            if (b === operatorinuse) {
+                document.getElementById("operatorinuse").innerText = c;
             }
         }
     }
 }
+
+
+
 
 
 // các chức năng khác (màu bạc)
@@ -108,6 +116,8 @@ function other(f) {
             break;
     }
 }
+
+alert("Máy tính siêu xịn V3.02 Made by ToànN");
 
 
 
