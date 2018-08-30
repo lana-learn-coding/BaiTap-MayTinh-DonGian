@@ -20,13 +20,24 @@ function inputnumber(number) {
             number = number + "";
             inputmemory = inputmemory + number;
     }
+    if (iffirstime === 1){document.getElementById("operand2").innerHTML = inputmemory;}//hiện operand2
     document.getElementById("out").innerText = inputmemory;
 }
 
 
 //function lưu trữ và xử lý input:
-function calculator(operator) {
-    //xử lý cho lần nhập đầu tiên
+function calculator(operator) {//bảng hiện Operator
+    document.getElementById("operand1").innerHTML = input1;//hiện operand1
+    for (a1 = 0; a1 < 5;) {
+        a1++;
+        a1 = a1 + "";
+        b1 = parseInt(document.getElementById(a1).id);
+        c1 = document.getElementById(a1).value;
+        if (b1 === operatorinuse) {
+            document.getElementById("operator").innerText = c1;
+        }
+    }
+    //xử lý cho lần nhập đầu tiên:
     if (iffirstime === 0) {
         iffirstime = 1;
         operatorinuse = operator;
@@ -37,7 +48,7 @@ function calculator(operator) {
             document.getElementById("out").innerHTML = input1;
         }
     }
-    //xử lý cho các lần nhập tiếp theo
+    //xử lý cho các lần nhập tiếp theo:
     else {
         if (inputmemory === "") {
             inputmemory = input2;
@@ -67,6 +78,15 @@ function calculator(operator) {
         operatorinuse = operator;
         inputmemory = "";
         document.getElementById("out").innerHTML = input1;
+        for (a2 = 0; a2 < 6;) {//bảng hiện OperatorInUse
+            a2++;
+            a2 = a2 + "";
+            b2 = parseInt(document.getElementById(a2).id);
+            c2 = document.getElementById(a2).value;
+            if (b2 === operatorinuse) {
+                document.getElementById("operatorinuse").innerText = c2;
+            }
+        }
     }
 }
 
@@ -88,6 +108,7 @@ function other(f) {
             break;
     }
 }
+
 
 
 

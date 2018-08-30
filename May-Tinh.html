@@ -23,32 +23,44 @@
                 </table>
             </div>
             <br>
+            <div>
+            <table border="1"
+                   style="width: 550px;height: 40px;font-size: 15px;"
+                   align="center">
+                <tr style="text-align: start;">
+                    <td>Operand1:&#160;<output id="operand1"></output></td>
+                    <td>Operand2:&#160;<output id="operand2"></output></td>
+                    <td style="width: 120px;">OperatorInUse:&#160;<output id="operatorinuse"></output></td>
+                    <td style="width: 100px;">PreOperator:&#160;<output id="operator"></output></td>
+                </tr>
+            </table>
+            </div>
             <br>
             <div>
                 <table align="center" style="width: 580px;">
                     <tr>
                         <td>
-                            <button style="width: 100px;height: 50px;background-color: coral;" value="+"
+                            <button style="width: 100px;height: 50px;background-color: coral;" id="1" value="+"
                                     onclick="calculator(1)">+
                             </button>
                         </td>
                         <td>
-                            <button style="width: 100px;height: 50px;background-color: coral;" value="-"
+                            <button style="width: 100px;height: 50px;background-color: coral;" id="2" value="-"
                                     onclick="calculator(2)">-
                             </button>
                         </td>
                         <td>
-                            <button style="width: 100px;height: 50px;background-color: coral;" value="x"
+                            <button style="width: 100px;height: 50px;background-color: coral;" id="3" value="x"
                                     onclick="calculator(3)">x
                             </button>
                         </td>
                         <td>
-                            <button style="width: 100px;height: 50px;background-color: coral;" value="/"
+                            <button style="width: 100px;height: 50px;background-color: coral;" id="4" value="/"
                                     onclick="calculator(4)">/
                             </button>
                         </td>
                         <td>
-                            <button style="width: 100px;height: 50px;background-color: coral;" value="%"
+                            <button style="width: 100px;height: 50px;background-color: coral;" id="5" value="%"
                                     onclick="calculator(5)">%
                             </button>
                         </td>
@@ -133,7 +145,7 @@
                         </td>
                         <td>
                             <button style="width: 100px;height: 100px;font-size: 40px;background-color: black;color: azure;"
-                                    value="=" onclick="calculator(6)">=
+                                    id="6" value="=" onclick="calculator(6)">=
                             </button>
                         </td>
 
