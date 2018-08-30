@@ -25,34 +25,32 @@ function inputnumber(number) {
 }
 
 
-//function lưu trữ, Xử lý toán tử và tính toán:
+//function lưu trữ và phân bố xử lý input:
 function calculator(cal) {
     // dành cho người lười bấm dấu "=":
     if (operatorcheck === 0) {
         operatorcheck = 1;
         operatorinuse = cal;
-        input1 = parseFloat(inputmemory);//lấy giá trị cho toán hạng từ input
-        inputmemory = "";//dùng xong xóa
+        input1 = parseFloat(inputmemory);
+        inputmemory = "";
         document.getElementById("out").innerHTML = "";
     } else {
         input2 = parseFloat(inputmemory);
-        switchcalculation();
-        inputmemory = "";
-        input1 = output;//cập nhật toán hạng 1
-        operatorinuse = cal;
+        switch (cal) {
+            case 6:
+                switchcalculation();
+                operatorinuse = 0;
+                operatorcheck = 0;
+                inputmemory = output;
+                break;
+            default:
+                switchcalculation();
+                inputmemory = "";
+                input1 = output;//cập nhật toán hạng 1
+                operatorinuse = cal;
+        }
         document.getElementById("out").innerHTML = output;
     }
-}
-
-
-//dấu "="
-function equalto() {
-    input2 = parseFloat(inputmemory);//lấy giá trị cho toán hạng từ input
-    switchcalculation();
-    operatorinuse = 0;
-    operatorcheck = 0;
-    inputmemory = output;
-    document.getElementById("out").innerHTML = output;
 }
 
 //tính toán
