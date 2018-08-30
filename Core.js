@@ -39,6 +39,9 @@ function calculator(cal) {
             case 4:
                 output = input1 / input2;
                 break;
+            case 5:
+                output = input1 % input2;
+                break;
             default:
                 output = inputmemory;
         }
@@ -65,6 +68,9 @@ function equalto() {
             break;
         case 4:
             output = input1 / input2;
+            break;
+        case 5:
+            output = input1 % input2;
             break;
         default:
             output = inputmemory;

@@ -7,91 +7,142 @@
 <body>
 <h1 align="center"><u>Máy Tính Siêu Xịn !</u></h1>
 <br>
-<div>
-    <table border="1" style="border-width: thick;border-style: double;width: 400px;height: 50px;" align="center">
-        <tr>
-            <td style="text-align: end;">
-                <output id="out">0</output>
-            </td>
-        </tr>
-    </table>
-</div>
-<br>
-<br>
-<div>
-    <table align="center" style="width: 400px;">
-        <tr>
-            <td>
-                <button style="width: 100px;height: 30px;background-color: coral;" value="1" onclick="calculator(1)">+
-                </button>
-            </td>
-            <td>
-                <button style="width: 100px;height: 30px;background-color: coral;" value="2" onclick="calculator(2)">-
-                </button>
-            </td>
-            <td>
-                <button style="width: 100px;height: 30px;background-color: coral;" value="3" onclick="calculator(3)">x
-                </button>
-            </td>
-            <td>
-                <button style="width: 100px;height: 30px;background-color: coral;" value="4" onclick="calculator(4)">/
-                </button>
-            </td>
+<table border="1" align="center" style="width: 600px; height: 550px; border-color: black;">
+    <tr>
+        <td>
+            <br>
+            <div>
+                <table border="1"
+                       style="border-width: thick;border-style: double;width: 500px;height: 60px;font-size: 40px"
+                       align="center">
+                    <tr>
+                        <td style="text-align: end;">
+                            <output id="out">0</output>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <br>
+            <br>
+            <div>
+                <table align="center" style="width: 500px;">
+                    <tr>
+                        <td>
+                            <button style="width: 100px;height: 50px;background-color: coral;" value="1"
+                                    onclick="calculator(1)">+
+                            </button>
+                        </td>
+                        <td>
+                            <button style="width: 100px;height: 50px;background-color: coral;" value="2"
+                                    onclick="calculator(2)">-
+                            </button>
+                        </td>
+                        <td>
+                            <button style="width: 100px;height: 50px;background-color: coral;" value="3"
+                                    onclick="calculator(3)">x
+                            </button>
+                        </td>
+                        <td>
+                            <button style="width: 100px;height: 50px;background-color: coral;" value="4"
+                                    onclick="calculator(4)">/
+                            </button>
+                        </td>
+                        <td>
+                            <button style="width: 100px;height: 50px;background-color: coral;" value="5"
+                                    onclick="calculator(5)">%
+                            </button>
+                        </td>
 
-        </tr>
-        <tr>
-            <td>
-                <button style="width: 100px;height: 30px;" value="1" onclick="inputnumber(1);">1</button>
-            </td>
-            <td>
-                <button style="width: 100px;height: 30px;" value="2" onclick="inputnumber(2);">2</button>
-            </td>
-            <td>
-                <button style="width: 100px;height: 30px;" value="3" onclick="inputnumber(3);">3</button>
-            </td>
-            <td>
-                <button style="width: 100px;height: 30px;background-color: darkgray;" value="6" onclick="other(2);">
-                    Delete
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <button style="width: 100px;height: 30px;" value="4" onclick="inputnumber(4);">4</button>
-            </td>
-            <td>
-                <button style="width: 100px;height: 30px;" value="5" onclick="inputnumber(5);">5</button>
-            </td>
-            <td>
-                <button style="width: 100px;height: 30px;" value="6" onclick="inputnumber(6);">6</button>
-            </td>
-            <td>
-                <button style="width: 100px;height: 30px;background-color: darkgray;" value="6" onclick="other(1);">
-                    Refresh
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <button style="width: 100px;height: 30px;" value="7" onclick="inputnumber(7);">7</button>
-            </td>
-            <td>
-                <button style="width: 100px;height: 30px;" value="8" onclick="inputnumber(8);">8</button>
-            </td>
-            <td>
-                <button style="width: 100px;height: 30px;" value="9" onclick="inputnumber(9);">9</button>
-            </td>
-            <td>
-                <button style="width: 100px;height: 30px;" value="0" onclick="inputnumber(0);">0</button>
-            </td>
-            <td>
-                <button style="width: 100px;height: 30px;background-color: coral;" value="5" onclick="equalto()">=
-                </button>
-            </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button style="width: 100px;height: 100px;font-size: 40px;" value="1"
+                                    onclick="inputnumber(1);">1
+                            </button>
+                        </td>
+                        <td>
+                            <button style="width: 100px;height: 100px;font-size: 40px;" value="2"
+                                    onclick="inputnumber(2);">2
+                            </button>
+                        </td>
+                        <td>
+                            <button style="width: 100px;height: 100px;font-size: 40px;" value="3"
+                                    onclick="inputnumber(3);">3
+                            </button>
+                        </td>
+                        <td>
+                            <button style="width: 100px;height: 100px;font-size: 40px;" value="-"
+                                    onclick="inputnumber(10);">(-)
+                            </button>
+                        </td>
+                        <td>
+                            <button style="width: 100px;height: 100px;background-color: darkgray;" value="6"
+                                    onclick="other(2);">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button style="width: 100px;height: 100px;font-size: 40px;" value="4"
+                                    onclick="inputnumber(4);">4
+                            </button>
+                        </td>
+                        <td>
+                            <button style="width: 100px;height: 100px;font-size: 40px;" value="5"
+                                    onclick="inputnumber(5);">5
+                            </button>
+                        </td>
+                        <td>
+                            <button style="width: 100px;height: 100px;font-size: 40px;" value="6"
+                                    onclick="inputnumber(6);">6
+                            </button>
+                        </td>
+                        <td>
+                            <button style="width: 100px;height: 100px;font-size: 40px;" value="."
+                                    onclick="inputnumber(11);">.
+                            </button>
+                        </td>
+                        <td>
+                            <button style="width: 100px;height: 100px;background-color: darkgray;" value="6"
+                                    onclick="other(1);">
+                                Refresh
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button style="width: 100px;height: 100px;font-size: 40px;" value="7"
+                                    onclick="inputnumber(7);">7
+                            </button>
+                        </td>
+                        <td>
+                            <button style="width: 100px;height: 100px;font-size: 40px;" value="8"
+                                    onclick="inputnumber(8);">8
+                            </button>
+                        </td>
+                        <td>
+                            <button style="width: 100px;height: 100px;font-size: 40px;" value="9"
+                                    onclick="inputnumber(9);">9
+                            </button>
+                        </td>
+                        <td>
+                            <button style="width: 100px;height: 100px;font-size: 40px;" value="0"
+                                    onclick="inputnumber(0);">0
+                            </button>
+                        </td>
+                        <td>
+                            <button style="width: 100px;height: 100px;font-size: 40px;background-color: black;color: azure;"
+                                    value="5" onclick="equalto()">=
+                            </button>
+                        </td>
 
-        </tr>
-    </table>
-</div>
+                    </tr>
+                </table>
+            </div>
+        </td>
+    </tr>
+</table>
 <script src="Core.js"></script>
 </body>
 </html>
