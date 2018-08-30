@@ -1,31 +1,41 @@
-//function nhập và xử lý số đưa ra màn hình:
+//các biến
 let inputmemory = "";//bộ nhớ input (dùng xong xóa)
 let input1;//toán hạng 1
 let input2;//toán hạng 2
 let output;// kết quả
+let operatorcheck = 0;//check xem có đang sử dụng operator nào không
+let operatorinuse;// toán tử đang sử dụng
 
+
+// funcion nhập đầu vào (inputmemmory)
 function inputnumber(number) {
     document.getElementById("out").innerHTML = "";
-    number = number + "";
-    inputmemory = inputmemory + number;
+    switch (number) {
+        case 10:
+            number = "-";// số âm
+            inputmemory = number + inputmemory;
+            break;
+        case 11:
+            number = ".";//số float
+        default:
+            number = number + "";
+            inputmemory = inputmemory + number;
+    }
     document.getElementById("out").innerText = inputmemory;
 }
 
 
 //function lưu trữ, Xử lý toán tử và tính toán:
-let operatorcheck = 0;//check xem có đang sử dụng operator nào không
-let operatorinuse;// toán tử đang sử dụng
-
 function calculator(cal) {
     // dành cho người lười bấm dấu "=":
     if (operatorcheck === 0) {
         operatorcheck = 1;
         operatorinuse = cal;
-        input1 = parseInt(inputmemory);//lấy giá trị cho toán hạng từ input
+        input1 = parseFloat(inputmemory);//lấy giá trị cho toán hạng từ input
         inputmemory = "";//dùng xong xóa
         document.getElementById("out").innerHTML = "";
     } else {
-        input2 = parseInt(inputmemory);
+        input2 = parseFloat(inputmemory);
         switch (operatorinuse) {
             case 1:
                 output = input1 + input2;
@@ -55,7 +65,7 @@ function calculator(cal) {
 
 //dấu "="
 function equalto() {
-    input2 = parseInt(inputmemory);//lấy giá trị cho toán hạng từ input
+    input2 = parseFloat(inputmemory);//lấy giá trị cho toán hạng từ input
     switch (operatorinuse) {
         case 1:
             output = input1 + input2;
@@ -79,8 +89,8 @@ function equalto() {
     operatorcheck = 0;
     inputmemory = output;
     document.getElementById("out").innerHTML = output;
-
 }
+
 
 // các chức năng khác (màu bạc)
 function other(f) {
@@ -95,10 +105,9 @@ function other(f) {
             inputmemory = "";
             break;
         case 2 :
-            inputmemory ="";
+            inputmemory = "";
             document.getElementById("out").innerHTML = "";
             break;
-
 
 
     }
