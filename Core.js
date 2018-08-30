@@ -36,25 +36,7 @@ function calculator(cal) {
         document.getElementById("out").innerHTML = "";
     } else {
         input2 = parseFloat(inputmemory);
-        switch (operatorinuse) {
-            case 1:
-                output = input1 + input2;
-                break;
-            case 2:
-                output = input1 - input2;
-                break;
-            case 3:
-                output = input1 * input2;
-                break;
-            case 4:
-                output = input1 / input2;
-                break;
-            case 5:
-                output = input1 % input2;
-                break;
-            default:
-                output = inputmemory;
-        }
+        switchcalculation();
         inputmemory = "";
         input1 = output;//cập nhật toán hạng 1
         operatorinuse = cal;
@@ -66,6 +48,15 @@ function calculator(cal) {
 //dấu "="
 function equalto() {
     input2 = parseFloat(inputmemory);//lấy giá trị cho toán hạng từ input
+    switchcalculation();
+    operatorinuse = 0;
+    operatorcheck = 0;
+    inputmemory = output;
+    document.getElementById("out").innerHTML = output;
+}
+
+//tính toán
+function switchcalculation() {
     switch (operatorinuse) {
         case 1:
             output = input1 + input2;
@@ -85,10 +76,6 @@ function equalto() {
         default:
             output = inputmemory;
     }
-    operatorinuse = 0;
-    operatorcheck = 0;
-    inputmemory = output;
-    document.getElementById("out").innerHTML = output;
 }
 
 
