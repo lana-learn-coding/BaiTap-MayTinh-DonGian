@@ -76,6 +76,7 @@ function calculator(operator) {
                 break;
             case 6:
                 if (operator === 6) {
+                    canhbao();
                     other(1);
                 }
                 break;
