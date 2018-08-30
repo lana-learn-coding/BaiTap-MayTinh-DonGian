@@ -1,10 +1,9 @@
 //các biến
 let inputmemory = "";//bộ nhớ input (dùng xong xóa)
-let input1;//toán hạng 1
+let input1 = 0;//toán hạng 1, sau lần đầu thì input 1 được coi như output
 let input2;//toán hạng 2
-let output;// kết quả
-let operatorcheck = 0;//check xem có đang sử dụng operator nào không
-let operatorinuse;// toán tử đang sử dụng
+let iffirstime = 0;// check xem đây có phải lần đầu input hay không
+let operatorinuse;// operator đang dùng
 
 
 // funcion nhập đầu vào (inputmemmory)
@@ -25,80 +24,66 @@ function inputnumber(number) {
 }
 
 
-//function lưu trữ và phân bố xử lý input:
-function calculator(cal) {
-    // dành cho người lười bấm dấu "=":
-    if (operatorcheck === 0) {
-        operatorcheck = 1;
-        operatorinuse = cal;
+
+//function lưu trữ và xử lý input:
+function calculator(operator) {
+    if (iffirstime === 0) {
+        iffirstime = 1;
+        operatorinuse = operator;
+        document.getElementById("out").innerHTML = "";
         input1 = parseFloat(inputmemory);
         inputmemory = "";
-        document.getElementById("out").innerHTML = "";
-    } else {
+    }
+    else {
         input2 = parseFloat(inputmemory);
-        switch (cal) {
+        switch (operatorinuse) {
+            case 1:
+                input1 = input1 + input2;
+                break;
+            case 2:
+                input1 = input1 - input2;
+                break;
+            case 3:
+                input1 = input1 * input2;
+                break;
+            case 4:
+                input1 = input1 / input2;
+                break;
+            case 5:
+                input1 = input1 % input2;
+                break;
             case 6:
-                switchcalculation();
-                operatorinuse = 0;
-                operatorcheck = 0;
-                inputmemory = output;
+                input1 = input1;
                 break;
             default:
-                switchcalculation();
-                inputmemory = "";
-                input1 = output;//cập nhật toán hạng 1
-                operatorinuse = cal;
+                input1 = inputmemory;
         }
-        document.getElementById("out").innerHTML = output;
+        operatorinuse = operator;
+        inputmemory = "";
+        document.getElementById("out").innerHTML = input1;
     }
 }
 
-//tính toán
-function switchcalculation() {
-    switch (operatorinuse) {
-        case 1:
-            output = input1 + input2;
-            break;
-        case 2:
-            output = input1 - input2;
-            break;
-        case 3:
-            output = input1 * input2;
-            break;
-        case 4:
-            output = input1 / input2;
-            break;
-        case 5:
-            output = input1 % input2;
-            break;
-        default:
-            output = inputmemory;
-    }
-}
+
 
 
 // các chức năng khác (màu bạc)
-function other(f) {
-    switch (f) {
-        case 1 :
-            document.getElementById("out").innerHTML = "0";
-            operatorinuse = 0;
-            operatorcheck = 0;
-            output = 0;
-            input1 = 0;
-            input2 = 0;
-            inputmemory = "";
-            break;
-        case 2 :
-            inputmemory = "";
-            document.getElementById("out").innerHTML = "";
-            break;
-
-
+    function other(f) {
+        switch (f) {
+            case 1 :
+                document.getElementById("out").innerHTML = "0";
+                input1 = 0;
+                input2 = 0;
+                inputmemory = "";
+                operatorinuse = 0;
+                iffirstime = 0;
+                break;
+            case 2 :
+                inputmemory = "";
+                document.getElementById("out").innerHTML = "";
+                break;
+        }
     }
-
-}
-
 
 
 
