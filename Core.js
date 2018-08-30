@@ -75,6 +75,9 @@ function calculator(operator) {
                 input1 = input1 % input2;
                 break;
             case 6:
+                if (inputmemory === "") {
+                    input1 = 0;
+                }
                 if (operator === 6) {
                     canhbao();
                     other(1);
