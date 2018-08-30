@@ -24,17 +24,24 @@ function inputnumber(number) {
 }
 
 
-
 //function lưu trữ và xử lý input:
 function calculator(operator) {
+    //xử lý cho lần nhập đầu tiên
     if (iffirstime === 0) {
         iffirstime = 1;
         operatorinuse = operator;
         document.getElementById("out").innerHTML = "";
         input1 = parseFloat(inputmemory);
         inputmemory = "";
+        if (operator === 6) {
+            document.getElementById("out").innerHTML = input1;
+        }
     }
+    //xử lý cho các lần nhập tiếp theo
     else {
+        if (inputmemory === "") {
+            inputmemory = input2;
+        }
         input2 = parseFloat(inputmemory);
         switch (operatorinuse) {
             case 1:
@@ -53,7 +60,6 @@ function calculator(operator) {
                 input1 = input1 % input2;
                 break;
             case 6:
-                input1 = input1;
                 break;
             default:
                 input1 = inputmemory;
@@ -65,25 +71,23 @@ function calculator(operator) {
 }
 
 
-
-
 // các chức năng khác (màu bạc)
-    function other(f) {
-        switch (f) {
-            case 1 :
-                document.getElementById("out").innerHTML = "0";
-                input1 = 0;
-                input2 = 0;
-                inputmemory = "";
-                operatorinuse = 0;
-                iffirstime = 0;
-                break;
-            case 2 :
-                inputmemory = "";
-                document.getElementById("out").innerHTML = "";
-                break;
-        }
+function other(f) {
+    switch (f) {
+        case 1 :
+            document.getElementById("out").innerHTML = "0";
+            input1 = 0;
+            input2 = 0;
+            inputmemory = "";
+            operatorinuse = 0;
+            iffirstime = 0;
+            break;
+        case 2 :
+            inputmemory = "";
+            document.getElementById("out").innerHTML = "";
+            break;
     }
+}
 
 
 
