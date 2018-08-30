@@ -7,7 +7,6 @@ let operatorinuse;// operator đang dùng
 let a = 0;// biến đếm cho vòng lặp đưa operator ra output operatoinuse
 
 
-
 // funcion nhập đầu vào (inputmemmory)(màu trắng
 function inputnumber(number) {
     document.getElementById("out").innerHTML = "";
@@ -76,6 +75,9 @@ function calculator(operator) {
                 input1 = input1 % input2;
                 break;
             case 6:
+                if (operator === 6) {
+                    other(1);
+                }
                 break;
             default:
                 input1 = inputmemory;
@@ -96,9 +98,6 @@ function calculator(operator) {
 }
 
 
-
-
-
 // các chức năng khác (màu bạc)
 function other(f) {
     switch (f) {
@@ -117,8 +116,17 @@ function other(f) {
     }
 }
 
-alert("Máy tính siêu xịn V3.02 Made by ToànN");
 
+//phụ
+alert("Máy tính siêu xịn v3.03 Made by ToànN");
+let al = 0;
+
+function canhbao() {
+    if (al = 0) {
+        al++;
+        alert("Lưu ý: bấm dấu \"=\" 2 lần sẽ refresh giá trị của máy tính. Chức năng này được thêm ở bản 3.03 :)")
+    }
+}
 
 
 
